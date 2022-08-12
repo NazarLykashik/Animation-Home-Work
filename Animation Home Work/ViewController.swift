@@ -24,6 +24,15 @@ class ViewController: UIViewController {
         animationButton.repeatCount = repeatCount
         animationButton.animate()
         
+        infoLabel.text = """
+Animation: \(animation),
+Curve: \(curve),
+Forse: \(force),
+Duration: \(duration),
+Delay: \(delay),
+Repeat Count: \(repeatCount).
+"""
+        
         infoLabel.animation = animation
         infoLabel.curve = curve
         infoLabel.force = force
@@ -51,30 +60,15 @@ class ViewController: UIViewController {
             switch count{
             case 0:
                 animate(animation: "pop", curve: "linear", force: 2, duration: 1, delay: 0.5, repeatCount: 2)
-                infoLabel.text = #"""
-Animation pop
-Curve linear
-Forse 2
-"""#
 
-                count = 1
+                count += 1
             case 1:
                 animate(animation: "squeeze", curve: "spring", force: 1, duration: 1, delay: 0.5, repeatCount: 3)
-
-                infoLabel.text = #"""
-Animation squeeze
-Curve spring
-Forse 1
-"""#
+                count += 1
 
             default:
-                animate(animation: "fadeOut", curve: "easeIn", force: 4, duration: 1, delay: 0.5, repeatCount: 3)
+                animate(animation: "fadeIn", curve: "easeIn", force: 4, duration: 1, delay: 1, repeatCount: 3)
 
-                infoLabel.text = #"""
-Animation fadeOut
-Curve easeIn
-Forse 2
-"""#
 
             }
     }
